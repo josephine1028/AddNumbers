@@ -39,7 +39,7 @@ jobs:
         shell: powershell
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
-          dotnet tool install --global dotnet-sonarscanner --tool-path .\.sonar\scanner
+          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
         
       - name: Setup Nuget
         uses: Nuget/setup-nuget@v1.0.5
@@ -49,6 +49,15 @@ jobs:
 
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Check SonarQube scanner installation
+        run: |
+          Get-ChildItem -Path .\.sonar\scanner -Recurse
+          Get-ChildItem -Path .\.sonar\scanner -Filter SonarScanner.MSBuild.exe
+          Get-ChildItem -Path .\.sonar\scanner -Filter dotnet-sonarscanner
+          Get-ChildItem -Path .\.sonar\scanner\.store -Recurse
+          Get-ChildItem -Path .\.sonar\scanner\.store\dotnet-sonarscanner -Recurse
+        shell: powershell
 
       - name: Build and analyze
         env:
