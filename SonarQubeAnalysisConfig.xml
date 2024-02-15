@@ -1,0 +1,21 @@
+<AnalysisConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+
+  <!-- 소나큐브 서버의 URL -->
+  <SonarQubeHostUrl>http://192.168.1.62:4093</SonarQubeHostUrl>
+
+  <!-- 소나큐브 프로젝트의 키 -->
+  <SonarProjectKey>AddNumbers</SonarProjectKey>
+
+  <!-- 소나큐브 서버에서 생성한 프로젝트 토큰 -->
+  <ProjectToken>SONAR_TOKEN</ProjectToken>
+
+  <!-- 분석 결과를 저장할 디렉토리 -->
+  <AnalysisDir>.</AnalysisDir>
+
+  <!-- 분석을 위한 소스 코드 및 솔루션 파일의 경로 -->
+  <SolutionFile>../../AddNumbers.sln</SolutionFile>
+  
+  <!-- 테스트 결과를 저장할 디렉토리 -->
+  <TestResultsDir>../out/test-results</TestResultsDir>
+
+</AnalysisConfig>
