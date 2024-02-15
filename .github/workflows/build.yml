@@ -71,6 +71,6 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\SonarScanner.MSBuild.exe begin /k:"AddNumbers" /d:sonar.host.url="http://192.168.1.62:4093" /d:sonar.token="sqp_965a383a60a63b2b6c4fed7bca0043e9402c00ab"
-          MSBuild.exe /t:Rebuild
+          .\.sonar\scanner\SonarScanner.MSBuild begin /k:"AddNumbers" /d:sonar.host.url="http://192.168.1.62:4093" /d:sonar.token="sqp_965a383a60a63b2b6c4fed7bca0043e9402c00ab"
+          MSBuild.exe AddNumbers.sln /t:Rebuild
           .\.sonar\scanner\SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
