@@ -39,7 +39,10 @@ jobs:
         shell: powershell
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+          # Install SonarScanner.MSBuild
+          Invoke-WebRequest -Uri https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/6.0.0.81631/sonar-scanner-6.0.0.81631-net-framework.zip -OutFile sonar-scanner-msbuild.zip
+          Expand-Archive -Path sonar-scanner-msbuild.zip -DestinationPath .\.sonar\scanner
+          Remove-Item sonar-scanner-msbuild.zip
         
       - name: Setup Nuget
         uses: Nuget/setup-nuget@v1.0.5
@@ -64,6 +67,6 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"AddNumbers" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="http://192.168.1.62:4093"
-          dotnet build
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          .\.sonar\scanner\SonarScanner.MSBuild.exe begin /k:"AddNumbers" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="http://192.168.1.62:4093"
+          MSBuild.exe /t:Rebuild
+          .\.sonar\scanner\SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
