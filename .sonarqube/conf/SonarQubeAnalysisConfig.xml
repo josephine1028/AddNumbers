@@ -1,11 +1,10 @@
-<SonarQubeAnalysisConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                          xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<AnalysisConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
 
   <!-- 소나큐브 서버의 URL -->
-  <ServerUrl>http://192.168.1.62:4093</ServerUrl>
+  <SonarQubeHostUrl>http://192.168.1.62:4093</SonarQubeHostUrl>
 
   <!-- 소나큐브 프로젝트의 키 -->
-  <ProjectKey>AddNumbers</ProjectKey>
+  <SonarProjectKey>AddNumbers</SonarProjectKey>
 
   <!-- 소나큐브 서버에서 생성한 프로젝트 토큰 -->
   <ProjectToken>SONAR_TOKEN</ProjectToken>
@@ -19,4 +18,4 @@
   <!-- 테스트 결과를 저장할 디렉토리 -->
   <TestResultsDir>../out/test-results</TestResultsDir>
 
-</SonarQubeAnalysisConfig>
+</AnalysisConfig>
