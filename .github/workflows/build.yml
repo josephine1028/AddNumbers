@@ -55,10 +55,8 @@ jobs:
 
       - name: Check SonarQube scanner installation
         run: |
-          # Get SonarScanner.MSBuild.exe
+          Get-ChildItem -Path .\.sonar\scanner -Recurse
           Get-ChildItem -Path .\.sonar\scanner -Filter SonarScanner.MSBuild.exe -ErrorAction SilentlyContinue
-      
-          # Get .NET SonarScanner
           Get-ChildItem -Path .\.sonar\scanner -Filter dotnet-sonarscanner -ErrorAction SilentlyContinue
       
           # Get .store directory
