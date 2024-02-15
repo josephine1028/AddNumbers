@@ -73,4 +73,12 @@ jobs:
         run: |
           .\.sonar\scanner\SonarScanner.MSBuild begin /key:"AddNumbers" /d:sonar.host.url="http://192.168.1.62:4093" /d:sonar.token="sqp_965a383a60a63b2b6c4fed7bca0043e9402c00ab"
           MSBuild.exe AddNumbers.sln /t:Rebuild
+          
+          # 빌드 프로세스가 완료될 때까지 대기
+          $buildProcess = Get-Process -Name MSBuild -ErrorAction SilentlyContinue
+          while ($buildProcess) {
+            Start-Sleep -Seconds 5
+            $buildProcess = Get-Process -Name MSBuild -ErrorAction SilentlyContinue
+          }
+          
           .\.sonar\scanner\SonarScanner.MSBuild end /d:sonar.token="sqp_965a383a60a63b2b6c4fed7bca0043e9402c00ab"
