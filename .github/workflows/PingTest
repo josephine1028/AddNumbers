@@ -1,0 +1,11 @@
+name: SonarQube Ping Test
+
+on: [push]
+
+jobs:
+  sonarqube_ping_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Ping SonarQube
+      run: ping -c 5 http://192.168.1.62:4093/api/server/version
