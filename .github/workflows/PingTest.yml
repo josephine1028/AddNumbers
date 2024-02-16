@@ -4,8 +4,8 @@ on: [push]
 
 jobs:
   sonarqube_ping_test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Check SonarQube Version
-      run: curl -s -m 10 -X GET http://192.168.1.62:4093/api/server/version
+      run: Invoke-WebRequest -Uri http://192.168.1.62:4093/api/server/version
