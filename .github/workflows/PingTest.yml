@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Ping SonarQube
-      run: curl -X GET http://192.168.1.62:4093/api/server/version
+    - name: Check SonarQube Version
+      run: curl -s -m 5 -X GET http://192.168.1.62:4093/api/server/version
