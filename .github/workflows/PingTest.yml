@@ -1,9 +1,6 @@
 name: SonarQube Ping Test
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   sonarqube_ping_test:
