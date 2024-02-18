@@ -67,13 +67,11 @@ jobs:
         shell: powershell
 
       - name: Build and analyze
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: powershell
         run: |
           Invoke-WebRequest -Uri http://192.168.1.62:4093/api/server/version
           
-          .\.sonar\scanner\SonarScanner.MSBuild begin /key:"AddNumbers" /d:sonar.host.url="http://192.168.1.62:4093"
+          .\.sonar\scanner\SonarScanner.MSBuild begin /key:"AddNumbers" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           
           MSBuild.exe AddNumbers.sln /t:Rebuild
           
@@ -84,4 +82,4 @@ jobs:
             $buildProcess = Get-Process -Name MSBuild -ErrorAction SilentlyContinue
           }
           
-          .\.sonar\scanner\SonarScanner.MSBuild end /d:sonar.token="sqa_676b7c45093fd351521102973febff7568aebd3e"
+          .\.sonar\scanner\SonarScanner.MSBuild end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
