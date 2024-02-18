@@ -1,7 +1,7 @@
 <AnalysisConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
 
   <!-- 소나큐브 서버의 URL -->
-  <SonarQubeHostUrl>http://192.168.1.62:4093</SonarQubeHostUrl>
+  <SonarQubeHostUrl>SONAR_HOST_URL</SonarQubeHostUrl>
 
   <!-- 소나큐브 프로젝트의 키 -->
   <SonarProjectKey>AddNumbers</SonarProjectKey>
