@@ -8,4 +8,4 @@ jobs:
 
     steps:
     - name: Check SonarQube Version
-      run: Invoke-WebRequest -Uri "http://121.143.24.161"
+      run: ping -c 5 "http://121.143.24.161"
