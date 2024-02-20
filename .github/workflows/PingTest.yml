@@ -4,8 +4,8 @@ on: [push]
 
 jobs:
   sonarqube_ping_test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Check SonarQube Version
-      run: ping -c 5 "http://121.143.24.161:80"
+    - name: Check Port Connectivity
+      run: nc -zvw5 121.143.24.161 80
