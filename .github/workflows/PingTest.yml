@@ -8,4 +8,4 @@ jobs:
 
     steps:
     - name: Check SonarQube Version
-      run: Invoke-WebRequest -Uri https://www.naver.com
+      run: Invoke-WebRequest -Uri 121.143.247.161
