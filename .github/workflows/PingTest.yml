@@ -8,7 +8,7 @@ jobs:
     
     steps:      
     - name: Check Port Connectivity
-      run: nc -zvw5 121.143.247.161 443
+      run: nc -zvw5 121.143.247.161 4093
 
     - name: Ping IP Address
       run: ping -c 5 121.143.247.161
