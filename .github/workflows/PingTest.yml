@@ -8,4 +8,4 @@ jobs:
 
     steps:
     - name: Check SonarQube Version
-      run: Invoke-WebRequest -Uri http://www.ati2000.co.kr
+      run: Invoke-WebRequest -Uri //121.143.24.161
