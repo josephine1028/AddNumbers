@@ -3,7 +3,7 @@ name: SonarQube Ping Test
 on:
   push:
     branches:
-      - master
+      - dev
 
 jobs:
   ping_test:
