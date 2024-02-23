@@ -1,8 +1,9 @@
 name: Check Port Connectivity
 
 on:
-  [push]
-
+  push:
+    branches:
+      - dev
 jobs:
   port_check:
     runs-on: windows-latest
