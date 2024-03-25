@@ -3,7 +3,7 @@ name: Check Port Connectivity
 on:
   push:
     branches:
-      - dev
+      - master
 jobs:
   port_check:
     runs-on: windows-latest
@@ -14,6 +14,52 @@ jobs:
       run: |
         $ipAddress = "121.143.247.161"
         $port = 4093
+
+        try {
+            $tcpClient = New-Object System.Net.Sockets.TcpClient
+            $tcpClient.Connect($ipAddress, $port)
+            Write-Output "Port $port on $ipAddress is open."
+            $tcpClient.Close()
+        } catch {
+            Write-Output "Port $port on $ipAddress is closed."
+        }
+
+    - name: Check Port Connectivity
+      shell: powershell
+      run: |
+        $ipAddress = "121.143.247.161"
+        $port = 9000
+
+        try {
+            $tcpClient = New-Object System.Net.Sockets.TcpClient
+            $tcpClient.Connect($ipAddress, $port)
+            Write-Output "Port $port on $ipAddress is open."
+            $tcpClient.Close()
+        } catch {
+            Write-Output "Port $port on $ipAddress is closed."
+        }
+
+    - name: Check Port Connectivity
+      shell: powershell
+      run: |
+        $ipAddress = "192.168.1.62"
+        $port = 4093
+
+        try {
+            $tcpClient = New-Object System.Net.Sockets.TcpClient
+            $tcpClient.Connect($ipAddress, $port)
+            Write-Output "Port $port on $ipAddress is open."
+            $tcpClient.Close()
+        } catch {
+            Write-Output "Port $port on $ipAddress is closed."
+        }
+
+        
+    - name: Check Port Connectivity
+      shell: powershell
+      run: |
+        $ipAddress = "192.168.1.62"
+        $port = 9000
 
         try {
             $tcpClient = New-Object System.Net.Sockets.TcpClient
