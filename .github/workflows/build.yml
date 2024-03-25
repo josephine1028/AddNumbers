@@ -73,7 +73,7 @@ jobs:
           
           MSBuild.exe AddNumbers.sln /t:Rebuild /p:configuration=Release /p:Platform=x64
           
-          # 빌드 프로세스가 완료될 때까지 대기
+          # 빌드 프로세스가 완료될 때까지 대기 
           $buildProcess = Get-Process -Name MSBuild -ErrorAction SilentlyContinue
           while ($buildProcess) {
             Start-Sleep -Seconds 5
